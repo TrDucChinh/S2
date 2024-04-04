@@ -1,11 +1,9 @@
-package org.s2booker_app.model;
+package org.s2booker_app.view;
 
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import org.s2booker_app.controller.MainSceneController;
 
 public class MainScene {
@@ -15,7 +13,7 @@ public class MainScene {
     private Button adminButton = new Button("Admin");
     private Button userButton = new Button("User");
     private Button moreInfoButton = new Button("Thông Tin Chi Tiết");
-    private MainSceneController startSceneController = new MainSceneController();
+    private MainSceneController mainSceneController = new MainSceneController();
 
     public Pane startScene() {
         root.setPrefSize(430, 430);
@@ -36,15 +34,17 @@ public class MainScene {
         adminButton.setLayoutX(155);
         adminButton.setLayoutY(170);
         adminButton.setFocusTraversable(false);
-        adminButton.setOnAction(e -> startSceneController.onAdminButtonClick());
+        adminButton.setOnAction(e -> {
+            mainSceneController.onAdminButtonClick(this);
+        });
 
         userButton.setPrefSize(120, 30);
         userButton.setLayoutX(155);
         userButton.setLayoutY(255);
         userButton.setFocusTraversable(false);
         userButton.setOnAction(e -> {
-            startSceneController.onUserButtonClick();
-            startSceneController.closeUserScene(this);
+            mainSceneController.onUserButtonClick();
+            mainSceneController.closeMainScene(this);
         });
 
         moreInfoButton.setPrefSize(120, 30);
