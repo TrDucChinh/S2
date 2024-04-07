@@ -12,47 +12,67 @@ public class MainScene {
     private Label choiceLabel = new Label("Vui Lòng Chọn Chức Năng");
     private Button adminButton = new Button("Admin");
     private Button userButton = new Button("User");
-    private Button moreInfoButton = new Button("Thông Tin Chi Tiết");
-    private MainSceneController mainSceneController = new MainSceneController();
+    private Button githubButton = new Button();
+    private Button facebookButton = new Button();
+    private MainSceneController controller = new MainSceneController();
 
     public Pane startScene() {
         root.setPrefSize(430, 430);
+        root.setId("bg");
 
         welcomeLabel.setPrefSize(365, 45);
         welcomeLabel.setLayoutX(35);
         welcomeLabel.setLayoutY(25);
         welcomeLabel.setAlignment(Pos.CENTER);
-        welcomeLabel.setStyle("-fx-font-size: 20px");
+        welcomeLabel.setId("label");
 
         choiceLabel.setPrefSize(250, 45);
         choiceLabel.setLayoutX(90);
         choiceLabel.setLayoutY(95);
         choiceLabel.setAlignment(Pos.CENTER);
-        choiceLabel.setStyle("-fx-font-size: 20px");
+        choiceLabel.setId("label");
 
         adminButton.setPrefSize(120, 30);
         adminButton.setLayoutX(155);
         adminButton.setLayoutY(170);
         adminButton.setFocusTraversable(false);
+        adminButton.setId("button");
         adminButton.setOnAction(e -> {
-            mainSceneController.onAdminButtonClick(this);
+            controller.onAdminButtonClick(this);
         });
 
         userButton.setPrefSize(120, 30);
         userButton.setLayoutX(155);
         userButton.setLayoutY(255);
         userButton.setFocusTraversable(false);
+        userButton.setId("button");
         userButton.setOnAction(e -> {
-            mainSceneController.onUserButtonClick();
-            mainSceneController.closeMainScene(this);
+            controller.onUserButtonClick();
+            controller.closeMainScene(this);
         });
 
-        moreInfoButton.setPrefSize(120, 30);
-        moreInfoButton.setLayoutX(155);
-        moreInfoButton.setLayoutY(340);
-        moreInfoButton.setFocusTraversable(false);
+        githubButton.setPrefSize(40, 40);
+        githubButton.setLayoutX(155);
+        githubButton.setLayoutY(340);
+        githubButton.setFocusTraversable(false);
+        githubButton.setId("githubBtn");
+        githubButton.setOnAction(e -> {
+            controller.onGithubButtonClick();
+        });
 
-        root.getChildren().addAll(welcomeLabel, choiceLabel, adminButton, userButton, moreInfoButton);
+        facebookButton.setPrefSize(40, 40);
+        facebookButton.setLayoutX(235);
+        facebookButton.setLayoutY(340);
+        facebookButton.setFocusTraversable(false);
+        facebookButton.setId("facebookBtn");
+
+        facebookButton.setOnAction(e -> {
+            controller.onFacebookButtonClick();
+
+        });
+
+        root.getStylesheets().add(getClass().getResource("/stylesheet/MainScene.css").toExternalForm());
+        root.getChildren().addAll(welcomeLabel, choiceLabel, adminButton, userButton, githubButton, facebookButton);
         return root;
     }
 
