@@ -48,7 +48,7 @@ public class MainScene {
         userButton.setId("button");
         userButton.setOnAction(e -> {
             controller.onUserButtonClick();
-            controller.closeMainScene(this);
+            this.getRoot().getScene().getWindow().hide();
         });
 
         githubButton.setPrefSize(40, 40);

@@ -14,6 +14,7 @@ public class AdminSceneController {
         bookRoomScene.setScene("Admin");
         Scene scene = new Scene(bookRoomScene.setTabPane());
         Stage stage = new Stage();
+        stage.getIcons().add(new javafx.scene.image.Image("file:src/main/resources/image/Logo_Pro.png"));
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Admin");
         stage.setScene(scene);
@@ -25,6 +26,7 @@ public class AdminSceneController {
         HistoryBookScene historyBookScene = new HistoryBookScene();
         Stage historyStage = new Stage();
         Scene historyScene = new Scene(historyBookScene.root());
+        historyStage.getIcons().add(new javafx.scene.image.Image("file:src/main/resources/image/Logo_Pro.png"));
         historyStage.initModality(Modality.APPLICATION_MODAL);
         historyStage.setResizable(false);
         historyStage.setScene(historyScene);

@@ -18,13 +18,13 @@ public class MainSceneController {
                 AdminScene adminScene = new AdminScene();
                 Stage adminStage = new Stage();
                 Scene scene = new Scene(adminScene.view());
+                adminStage.getIcons().add(new javafx.scene.image.Image("file:src/main/resources/image/Logo_Pro.png"));
                 adminStage.initModality(Modality.APPLICATION_MODAL);
                 adminStage.setResizable(false);
                 adminStage.setScene(scene);
                 adminStage.setTitle("Admin");
                 adminStage.show();
-                MainSceneController mainSceneController = new MainSceneController();
-                mainSceneController.closeMainScene(mainScene);
+                mainScene.getRoot().getScene().getWindow().hide();
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText("Lỗi Đăng Nhập");
@@ -39,14 +39,12 @@ public class MainSceneController {
         Stage userStage = new Stage();
         Scene startScene = new Scene(userScene.view());
         userStage.initModality(Modality.APPLICATION_MODAL);
+        userStage.getIcons().add(new javafx.scene.image.Image("file:src/main/resources/image/Logo_Pro.png"));
+
         userStage.setResizable(false);
         userStage.setTitle("User");
         userStage.setScene(startScene);
         userStage.show();
-    }
-
-    public void closeMainScene(MainScene mainScene) {
-        mainScene.getRoot().getScene().getWindow().hide();
     }
 
     public void onGithubButtonClick() {

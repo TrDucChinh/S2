@@ -13,6 +13,8 @@ public class UserSceneController {
         bookRoomScene.setScene("User");
         Stage stage = new Stage();
         Scene scene = new Scene(bookRoomScene.setTabPane());
+        stage.getIcons().add(new javafx.scene.image.Image("file:src/main/resources/image/Logo_Pro.png"));
+
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
@@ -22,6 +24,7 @@ public class UserSceneController {
         MainScene mainScene = new MainScene();
         Stage stage = new Stage();
         Scene scene = new Scene(mainScene.startScene());
+        stage.getIcons().add(new javafx.scene.image.Image("file:src/main/resources/image/Logo_Pro.png"));
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

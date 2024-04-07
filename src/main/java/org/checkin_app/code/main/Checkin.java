@@ -18,6 +18,7 @@ public class Checkin extends Application {
     public void start(Stage stage) throws Exception {
         CheckinScene checkinScene = new CheckinScene();
         Scene scene = new Scene(checkinScene.display());
+        stage.getIcons().add(new javafx.scene.image.Image("file:src/main/resources/image/Logo_Pro.png"));
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setTitle("Check In App - QR Code");

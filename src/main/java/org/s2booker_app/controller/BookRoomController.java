@@ -178,6 +178,8 @@ public class BookRoomController {
             AdminScene adminScene = new AdminScene();
             Scene scene = new Scene(adminScene.view());
             Stage stage = new Stage();
+            stage.getIcons().add(new javafx.scene.image.Image("file:src/main/resources/image/Logo_Pro.png"));
+            stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
         } else if (nameScene.equals("User")) {

@@ -66,6 +66,7 @@ public class HistoryBookController {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.getIcons().add(new javafx.scene.image.Image("file:src/main/resources/image/Logo_Pro.png"));
         stage.setResizable(false);
         stage.show();
     }
