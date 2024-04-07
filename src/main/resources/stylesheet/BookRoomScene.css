@@ -32,7 +32,6 @@
 }
 #timeLabel{
     -fx-background-color:#7289DA;
-    /*-fx-background-color:#4682B4;*/
     -fx-font-size: 14;
     -fx-text-fill: rgba(255,255,255,0.85);
     -fx-font-weight: bold;
@@ -49,6 +48,14 @@
 }
 
 #choicedLabel{
+    -fx-background-color: rgba(218, 165, 32, 0.75);
+    -fx-font-size: 14;
+    -fx-text-fill: #23272A;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+#dragLabel{
     -fx-background-color: rgba(218, 165, 32, 0.75);
     -fx-font-size: 14;
     -fx-text-fill: #23272A;
