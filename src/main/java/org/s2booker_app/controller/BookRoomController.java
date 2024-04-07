@@ -1,12 +1,16 @@
 package org.s2booker_app.controller;
 
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import javafx.util.Pair;
 import org.s2booker_app.model.RoomDetailsInformation;
+import org.s2booker_app.view.AdminScene;
+import org.s2booker_app.view.UserScene;
 
 
 import java.time.DayOfWeek;
@@ -24,6 +28,9 @@ public class BookRoomController {
     private SaveData save_load = new SaveData();
     private LocalDate currentDate = LocalDate.now();
     private LocalDate startOfWeek = currentDate.with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
+
+    private String nameScene;
+
     public void dragSelection(Pane cellsPane) {
 
         List<RoomDetailsInformation> roomDetailsInformationList = save_load.loadData(this.getDataPath());
@@ -155,7 +162,7 @@ public class BookRoomController {
                 if (cellsPane.getChildren().get(i) instanceof Label label) {
                     if (roomDetailsInformation.getMinX() <= label.getLayoutX() && label.getLayoutX() < roomDetailsInformation.getMaxX() && roomDetailsInformation.getMinY() <= label.getLayoutY() && label.getLayoutY() < roomDetailsInformation.getMaxY() && roomDetailsInformation.getDayBorrow().equals(borrowDate)) {
                         label.setText(roomDetailsInformation.getPurpose());
-                        label.setStyle("-fx-background-color: lightgray;");
+                        label.setId("choicedLabel");
                         Tooltip tooltip = new Tooltip();
                         tooltip.setText("Người Mượn Phòng: " + roomDetailsInformation.getRoomBorrower() + "\n" + "Mục Đích Mượn Phòng: " + roomDetailsInformation.getPurpose());
                         label.setTooltip(tooltip);
@@ -166,11 +173,34 @@ public class BookRoomController {
         }
     }
 
+    public void onHomeBtnClick(String nameScene) {
+        if (nameScene.equals("Admin")) {
+            AdminScene adminScene = new AdminScene();
+            Scene scene = new Scene(adminScene.view());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } else if (nameScene.equals("User")) {
+            UserScene userScene = new UserScene();
+            Scene scene = new Scene(userScene.view());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        }
+    }
+
     public String getDataPath() {
         return dataPath;
     }
 
     public void setDataPath(String path) {
         this.dataPath = path;
+    }
+    public String getNameScene() {
+        return nameScene;
+    }
+
+    public void setNameScene(String nameScene) {
+        this.nameScene = nameScene;
     }
 }
