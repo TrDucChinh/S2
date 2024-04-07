@@ -1,0 +1,22 @@
+#status{
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+    -fx-text-fill: #7289DA;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}
+
+#check-in{
+    --fx-font-size: 14px;
+    -fx-background-color: lightgray;
+    -fx-alignment: center;
+    -fx-background-radius: 10;
+    -fx-font-weight: bold;
+}
+#check-out{
+    -fx-font-size: 14px;
+    -fx-background-color: rgba(127, 255, 0, 0.8);
+    -fx-alignment: center;
+    -fx-background-radius: 10;
+    -fx-font-weight: bold;
+}
