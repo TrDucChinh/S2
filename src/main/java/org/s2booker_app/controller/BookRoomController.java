@@ -78,7 +78,7 @@ public class BookRoomController {
             for (int i = 0; i < cellsPane.getChildren().size(); i++) {
                 if (cellsPane.getChildren().get(i) instanceof Label label) {
                     if (selectionRectangle.getBoundsInParent().intersects(label.getBoundsInParent())) {
-
+                        label.setId("dragLabel");
                         minX = Math.min(selectionRectangle.getX(), label.getLayoutX());
                         minY = Math.min(50 * ((int) selectionRectangle.getY() / 50 - 1) + 50, label.getLayoutY());
                         maxX = Math.max(selectionRectangle.getX() + selectionRectangle.getWidth(), label.getLayoutX() + label.getWidth());
@@ -88,7 +88,6 @@ public class BookRoomController {
                             if (result.isPresent()) {
                                 label.setText(result.get().getValue());
                                 String tooltipText = "Người Mượn Phòng: " + result.get().getKey() + "\n" + "Mục Đích Mượn Phòng: " + result.get().getValue();
-                                label.setStyle("-fx-background-color: lightgray;");
                                 Tooltip tooltip = new Tooltip();
                                 tooltip.setText(tooltipText);
                                 label.setTooltip(tooltip);
@@ -107,7 +106,6 @@ public class BookRoomController {
                             }
                             label.setText(result.get().getValue());
                             String tooltipText = "Người Mượn Phòng: " + result.get().getKey() + "\n" + "Mục Đích Mượn Phòng: " + result.get().getValue();
-                            label.setStyle("-fx-background-color: lightgray;");
                             Tooltip tooltip = new Tooltip();
                             tooltip.setText(tooltipText);
                             label.setTooltip(tooltip);
