@@ -16,29 +16,32 @@ public class LoginScene {
 
     public Pane loginView(){
         root.setPrefSize(350, 200);
-        titleLabel.setLayoutX(37.5);
+        titleLabel.setLayoutX(45);
         titleLabel.setLayoutY(15);
         titleLabel.setPrefSize(275, 25);
         titleLabel.setAlignment(Pos.CENTER);
+        titleLabel.setStyle("-fx-font-weight: bold;");
 
         usernameLabel.setLayoutX(25);
         usernameLabel.setLayoutY(65);
         usernameLabel.setPrefSize(75, 25);
         usernameLabel.setAlignment(Pos.CENTER);
+        usernameLabel.setStyle("-fx-font-weight: bold;");
 
         usernameField.setLayoutX(100);
         usernameField.setLayoutY(65);
         usernameField.setPrefSize(200, 25);
+        usernameField.setPromptText("Tài Khoản");
 
         passwordLabel.setLayoutX(25);
         passwordLabel.setLayoutY(125);
         passwordLabel.setPrefSize(75, 25);
         passwordLabel.setAlignment(Pos.CENTER);
+        passwordLabel.setStyle("-fx-font-weight: bold;");
 
         passwordField.setLayoutX(100);
         passwordField.setLayoutY(125);
         passwordField.setPrefSize(200, 25);
-
         root.getChildren().addAll(titleLabel, usernameLabel, passwordLabel, usernameField, passwordField);
         return root;
     }

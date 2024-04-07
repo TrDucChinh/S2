@@ -16,6 +16,7 @@ public class CustomInputDialog {
     public Dialog inputDialog() {
         Dialog < Pair<String, String> > dialog = new Dialog<>();
         dialog.setTitle("Input Dialog");
+        dialog.getDialogPane().setId("bg");
 
         ButtonType confirmButton = new ButtonType("Xác Nhận", ButtonBar.ButtonData.OK_DONE);
         ButtonType cancelButton = new ButtonType("Hủy", ButtonBar.ButtonData.CANCEL_CLOSE);

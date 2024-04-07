@@ -4,14 +4,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import javafx.util.Pair;
-import org.s2booker_app.view.HistoryBookScene;
-import org.s2booker_app.view.MainScene;
-import org.s2booker_app.view.MultiBookRoomScene;
+import org.s2booker_app.view.*;
 
 import java.util.Optional;
-
 
 public class MainSceneController {
     public void onAdminButtonClick(MainScene mainScene) {
@@ -19,13 +15,14 @@ public class MainSceneController {
         Optional<Pair<String, String>> result = customLoginDialog.loginDialog().showAndWait();
         result.ifPresent(usernamePassword -> {
             if (usernamePassword.getKey().equals(customLoginDialog.getUsername()) && usernamePassword.getValue().equals(customLoginDialog.getPassword())) {
-                HistoryBookScene historyBookScene = new HistoryBookScene();
-                Stage historyStage = new Stage();
-                Scene historyScene = new Scene(historyBookScene.historyScene());
-                historyStage.initModality(Modality.APPLICATION_MODAL);
-                historyStage.setResizable(false);
-                historyStage.setScene(historyScene);
-                historyStage.show();
+                AdminScene adminScene = new AdminScene();
+                Stage adminStage = new Stage();
+                Scene scene = new Scene(adminScene.view());
+                adminStage.initModality(Modality.APPLICATION_MODAL);
+                adminStage.setResizable(false);
+                adminStage.setScene(scene);
+                adminStage.setTitle("Admin");
+                adminStage.show();
                 MainSceneController mainSceneController = new MainSceneController();
                 mainSceneController.closeMainScene(mainScene);
             } else {
@@ -38,15 +35,31 @@ public class MainSceneController {
     }
 
     public void onUserButtonClick() {
-        MultiBookRoomScene multiUserScene = new MultiBookRoomScene();
+        UserScene userScene = new UserScene();
         Stage userStage = new Stage();
-        Scene startScene = new Scene(multiUserScene.setTabPane());
+        Scene startScene = new Scene(userScene.view());
         userStage.initModality(Modality.APPLICATION_MODAL);
         userStage.setResizable(false);
+        userStage.setTitle("User");
         userStage.setScene(startScene);
         userStage.show();
     }
+
     public void closeMainScene(MainScene mainScene) {
         mainScene.getRoot().getScene().getWindow().hide();
+    }
+
+    public void onGithubButtonClick() {
+        try {
+            java.awt.Desktop.getDesktop().browse(java.net.URI.create("https://github.com/TrDucChinh"));
+        } catch (java.io.IOException e) {
+        }
+    }
+
+    public void onFacebookButtonClick() {
+        try {
+            java.awt.Desktop.getDesktop().browse(java.net.URI.create("https://www.facebook.com/tdczin04"));
+        } catch (java.io.IOException e) {
+        }
     }
 }

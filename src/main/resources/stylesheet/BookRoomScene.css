@@ -1,0 +1,57 @@
+#bg{
+    -fx-background-color:#23272A;
+}
+#homeBtn{
+    -fx-background-color:#2C2F33;
+    -fx-background-image: url("../image/Home_Icon.png");
+    -fx-background-size: cover;
+}
+#homeBtn:hover{
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+}
+
+#dayLabel{
+    -fx-alignment: center;
+    -fx-background-color:#7289DA;
+    /*-fx-background-color:#4682B4;*/
+    -fx-font-size: 14;
+    -fx-text-fill: rgba(255,255,255,0.85);
+    -fx-font-weight: bold;
+    -fx-border-color: #23272A;
+}
+#currentDayLabel{
+    -fx-alignment: center;
+    -fx-background-color:#7289DA;
+    /*-fx-background-color:#4682B4;*/
+    -fx-font-size: 14;
+    -fx-text-fill: rgb(219, 20, 60);
+    -fx-font-weight: bold;
+    -fx-border-color: #23272A;
+
+}
+#timeLabel{
+    -fx-background-color:#7289DA;
+    /*-fx-background-color:#4682B4;*/
+    -fx-font-size: 14;
+    -fx-text-fill: rgba(255,255,255,0.85);
+    -fx-font-weight: bold;
+    -fx-border-color: #23272A;
+    -fx-alignment: center;
+}
+#cellsLabel{
+    -fx-background-color: rgba(255,255,255,0.85);
+    -fx-font-size: 14;
+    -fx-text-fill: #23272A;
+    -fx-font-weight: bold;
+    -fx-border-color: #23272A;
+    -fx-alignment: center;
+}
+
+#choicedLabel{
+    -fx-background-color: rgba(218, 165, 32, 0.75);
+    -fx-font-size: 14;
+    -fx-text-fill: #23272A;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}

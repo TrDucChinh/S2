@@ -3,8 +3,13 @@ package org.s2booker_app.controller;
 import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.s2booker_app.model.RoomDetailsInformation;
+import org.s2booker_app.view.AdminScene;
+import org.s2booker_app.view.HistoryBookScene;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,5 +58,15 @@ public class HistoryBookController {
             historyList.add(data.toString());
         }
         return historyList;
+    }
+
+    public void onBackClick() {
+        AdminScene adminScene = new AdminScene();
+        Scene scene = new Scene(adminScene.view());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setResizable(false);
+        stage.show();
     }
 }
