@@ -12,7 +12,6 @@ public class Checkout extends Application {
     public void start(Stage stage) throws Exception {
         CheckoutScene checkoutScene = new CheckoutScene();
         Scene scene = new Scene(checkoutScene.display());
-        stage.initModality(Modality.APPLICATION_MODAL);
         stage.getIcons().add(new javafx.scene.image.Image("file:src/main/resources/image/Logo_Pro.png"));
         stage.setScene(scene);
         stage.setResizable(false);
